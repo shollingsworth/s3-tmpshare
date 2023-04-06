@@ -59,7 +59,7 @@ export S3_TMPSHARE_BUCKET=...
 
 ## cli tool
 
-Link or copy the [s3_tmpshare.py]('./s3_tmpshare.py') file into your `bin`
+Link or copy the [s3_tmpshare.py](./s3_tmpshare.py) file into your `bin`
 directory.
 
 - run `s3_tmpshare.py -h to see the cli options`
