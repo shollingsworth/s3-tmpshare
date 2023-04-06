@@ -1,7 +1,7 @@
 # Requirements
 
-- [tfswitch](https://tfswitch.warrensbox.com/)
-- `pip install boto3`
+-   [tfswitch](https://tfswitch.warrensbox.com/)
+-   `pip install boto3`
 
 # How to use
 
@@ -12,7 +12,7 @@ environment to the aws account you want to use [see](https://docs.aws.amazon.com
 
 _*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*_
 
-_*!!!!! Be sure to change the values mentioned in [./tf/main.tf](./tf/main.tf)*_ 
+_*!!!!! Be sure to change the values mentioned in [./tf/main.tf](./tf/main.tf)*_
 _*before running apply*_
 
 _*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*_
@@ -29,7 +29,7 @@ tfswitch
 
 # change the state to remote or remove the remote state all together if you
 # don't want to go through the trouble and initialize state
-# 
+#
 # Change the prefix in the `main.tf` file to fit your needs
 terraform init
 
@@ -41,7 +41,6 @@ terraform apply
 # environment variables or cli switches
 terraform output -json
 ```
-
 
 ## OPTIONAL: set your environment variables to the outputs of the above command
 
@@ -62,25 +61,33 @@ export S3_TMPSHARE_BUCKET=...
 Link or copy the [s3_tmpshare.py](./s3_tmpshare.py) file into your `bin`
 directory.
 
-- run `s3_tmpshare.py -h to see the cli options`
+-   run `s3_tmpshare.py -h to see the cli options`
 
 ### Example
+
 ```
 ## Upload README.md and get back a URL good for five minutes
 s3_tmpshare.py README.md -t 5
 ```
 
 OUTPUT:
+
 ```
+-----------------------------------------
 Uploading file to S3
+-----------------------------------------
 Making file temporarily accessible
+-----------------------------------------
 s3 path: s3://shollingsworth-s3-tmpshare-store/README.md
-File will be available until 2023-04-06 14:48:53.886562
-File uploaded to:
-https://s3.us-east-2.amazonaws.com/shollingsworth-s3-tmpshare-store/README.md?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAZXN7Q4BXW4NDOBA2%2F20230406%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20230406T214353Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=cd7c224cc11d46b0b1dc1c57b11007c4992f3a8b2acfa39a54bfaaa385c5367a
+-----------------------------------------
+File will be available until 2023-04-06 15:27:32.607002
+-----------------------------------------
+URL:
+https://s3.us-east-2.amazonaws.com/shollingsworth-s3-tmpshare-store/README.md?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAZXN7Q4BXW4NDOBA2%2F20230406%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20230406T222232Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=f277d22f968222cf127adc8414d2e9ac3c710ceb1e157946d621d1cea73a32b3
 ```
 
 If expired it will return a result like this:
+
 ```
 This XML file does not appear to have any style information associated with it. The document tree is shown below.
 <Error>
