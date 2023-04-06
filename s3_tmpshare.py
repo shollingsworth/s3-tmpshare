@@ -45,6 +45,7 @@ def run(parser, args):
         aws_secret_access_key=args.secret,
         region_name="us-east-2",
     )
+    print("Uploading file to S3")
     s3.upload_file(
         Filename=str(file.absolute()),
         Bucket=args.bucket,
@@ -53,6 +54,7 @@ def run(parser, args):
             "ContentType": mimetypes.guess_type(str(file.absolute()))[0],
         },
     )
+    print("Making file temporarily accessible")
     url = s3.generate_presigned_url(
         ClientMethod="get_object",
         Params={

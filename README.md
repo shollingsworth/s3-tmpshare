@@ -72,8 +72,10 @@ s3_tmpshare.py README.md -t 5
 
 OUTPUT:
 ```
+Uploading file to S3
+Making file temporarily accessible
 s3 path: s3://shollingsworth-s3-tmpshare-store/README.md
 File will be available for 5 minutes
 File uploaded to:
-https://s3.us-east-2.amazonaws.com/shollingsworth-s3-tmpshare-store/README.md?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAZXN7Q4BXW4NDOBA2%2F20230406%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20230406T213930Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=b7e032347aed1f39d3e5b0fc5abcfa4497bbca4bc0fdb4616031938cf6f6a888
+https://s3.us-east-2.amazonaws.com/shollingsworth-s3-tmpshare-store/README.md?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAZXN7Q4BXW4NDOBA2%2F20230406%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20230406T214144Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=f81b13977cd70ab37789db785983495aa90052aab4de77d44f702bfed725b20e
 ```
