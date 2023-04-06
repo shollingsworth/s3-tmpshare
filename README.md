@@ -1,3 +1,18 @@
+# Purpose
+Give temporary file links to folks that automatically expire in a somewhat
+secure manner!
+
+This setup uses s3 as a temporary file store along with using aws presigned urls.
+
+Terraform sets up a bucket, and a lifecycle rule that auto expires any
+documents older than 24 hours, along with creating a limited service account user that
+can only manipulate items in that bucket.
+
+The [s3_tmpshare.py](./s3_tmpshare.py) script uses the outputs from the
+terraform to quickly share files and provide others with a public link that
+expires in a set amount of time between 1 minute and 24 hours.
+
+
 # Requirements
 
 -   [tfswitch](https://tfswitch.warrensbox.com/)
