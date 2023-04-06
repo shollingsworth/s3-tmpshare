@@ -79,3 +79,17 @@ File will be available until 2023-04-06 14:48:53.886562
 File uploaded to:
 https://s3.us-east-2.amazonaws.com/shollingsworth-s3-tmpshare-store/README.md?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAZXN7Q4BXW4NDOBA2%2F20230406%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20230406T214353Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=cd7c224cc11d46b0b1dc1c57b11007c4992f3a8b2acfa39a54bfaaa385c5367a
 ```
+
+If expired it will return a result like this:
+```
+This XML file does not appear to have any style information associated with it. The document tree is shown below.
+<Error>
+<Code>AccessDenied</Code>
+<Message>Request has expired</Message>
+<X-Amz-Expires>300</X-Amz-Expires>
+<Expires>2023-04-06T21:48:53Z</Expires>
+<ServerTime>2023-04-06T21:48:54Z</ServerTime>
+<RequestId>86C34AMV3X936RKK</RequestId>
+<HostId>87XL/7ZNe9jiiLMUZ2JHZXiQ7CdDHUWUcFFiFRti73y07WC0x2k/SxFwpbwKwqlUszLJoIXh1rk=</HostId>
+</Error>
+```
