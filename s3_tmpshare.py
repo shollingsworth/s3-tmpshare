@@ -15,6 +15,7 @@ S3_TMPSHARE_BUCKET=...
 import argparse
 import os
 from pathlib import Path
+from datetime import timedelta, datetime
 # mimetype
 import mimetypes
 
@@ -38,6 +39,7 @@ def run(parser, args):
     if seconds < 0 or seconds > 86400:
         print("Time must be between 1 and 1440 minutes (24 hours)")
         exit(parser.print_help())
+
     s3 = boto3.client(
         "s3",
         endpoint_url="https://s3.us-east-2.amazonaws.com",
@@ -63,8 +65,9 @@ def run(parser, args):
         },
         ExpiresIn=seconds,
     )
+    exptime = datetime.now() + timedelta(seconds=seconds)
     print(f"s3 path: s3://{args.bucket}/{key}")
-    print(f"File will be available for {args.time} minutes")
+    print(f"File will be available until {exptime}")
     print(f"File uploaded to:\n{url}")
 
 
