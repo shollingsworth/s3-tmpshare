@@ -61,7 +61,7 @@ terraform output -json
 
 Keep these secret, can be put in your `.bashrc` or `.zsh`
 I recommend using [pass](https://www.passwordstore.org/) so they aren't
-plaintext, i.e. `source <(pass show s3_tempstore_creds)>`
+plaintext, i.e. `source <(pass show s3_tempstore_creds)`
 
 That file would look like this.
 
