@@ -1,6 +1,5 @@
 # Purpose
-Give temporary file links to folks that automatically expire in a somewhat
-secure manner!
+Give temporary file links to folks to GET (download) a file, or PUT (upload) a file that automatically expire!
 
 This setup uses s3 as a temporary file store along with using aws presigned urls.
 
@@ -80,9 +79,10 @@ directory.
 
 ### Example
 
+## Give HTTP GET URL (sending someone a temp url)
 ```
 ## Upload README.md and get back a URL good for five minutes
-s3_tmpshare.py README.md -t 5
+s3_tmpshare.py get README.md -t 5
 ```
 
 OUTPUT:
@@ -114,4 +114,31 @@ This XML file does not appear to have any style information associated with it. 
 <RequestId>86C34AMV3X936RKK</RequestId>
 <HostId>87XL/7ZNe9jiiLMUZ2JHZXiQ7CdDHUWUcFFiFRti73y07WC0x2k/SxFwpbwKwqlUszLJoIXh1rk=</HostId>
 </Error>
+```
+
+## Give HTTP PUT URL (someone sending me a file)
+```
+## Upload README.md and get back a URL good for five minutes
+s3_tmpshare.py post foo.md -t 5
+```
+
+OUTPUT:
+
+```
+-----------------------------------------
+Getting post upload link
+-----------------------------------------
+s3 path: s3://shollingsworth-s3-tmpshare-store/foo.md
+-----------------------------------------
+File will be available until 2023-04-11 15:38:28.357796
+-----------------------------------------
+URL:
+https://s3.us-east-2.amazonaws.com/shollingsworth-s3-tmpshare-store/foo.md?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAZXN7Q4BXW4NDOBA2%2F20230411%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20230411T223328Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=000ff872b588b848abcd36b3b79539c543accbaac9770247422c25ad4077ef0d
+-----------------------------------------
+curl command:
+curl -X PUT -T foo.md https://s3.us-east-2.amazonaws.com/shollingsworth-s3-tmpshare-store/foo.md?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAZXN7Q4BXW4NDOBA2%2F20230411%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20230411T223328Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=000ff872b588b848abcd36b3b79539c543accbaac9770247422c25ad4077ef0d
+-----------------------------------------
+wating for file to be uploaded...
+-----------------------------------------
+file downloaded
 ```
